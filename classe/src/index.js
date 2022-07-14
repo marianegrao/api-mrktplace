@@ -8,4 +8,7 @@ app.use(express.json());
 app.use(cors());
 app.use(rotas);
 
-app.listen(process.env.PORT || 3100);
+const server = app.listen(process.env.PORT || 3100, () => {
+    const port = server.address().port;
+    console.log(`Express is working on port ${port}`);
+});
